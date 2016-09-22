@@ -1,0 +1,25 @@
+number=int(input('Please enter a number:'))
+orinumber=number
+factor=[1]
+factorT=[0]
+r=0
+for d in range(2,number+1):
+    time=0
+    r=r+1
+    while number%d==0:
+        time=time+1
+        if d != factor[len(factor)-1]:
+            factor.append(d)
+        number=number/d
+        if r > len(factorT)-1:
+            factorT.append(time)
+        else:
+            factorT[r]=time
+    if number==1:
+        break
+temp=""
+print(orinumber,'=',end='')
+for n in range(1,len(factor)):
+    temp=temp+str(factor[n])+"^"+str(factorT[n])+" * "
+print (temp[:len(temp)-2])
+    
